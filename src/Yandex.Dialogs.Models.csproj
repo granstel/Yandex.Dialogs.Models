@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>GranSteL</Authors>
+    <Description>Models for Yandex dialogs</Description>
+    <PackageProjectUrl>https://github.com/granstel/Yandex.Dialogs.Models</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/granstel/Yandex.Dialogs.Models</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>Yandex, Dialogs, Models</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Language>C#</Language>
+    <Title>Yandex.Dialogs.Models</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
