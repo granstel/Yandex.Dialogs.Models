@@ -4,15 +4,15 @@ using Newtonsoft.Json.Serialization;
 namespace Yandex.Dialogs.Models
 {
     [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public class Request
+    public class EntityValue
     {
         [JsonProperty]
-        public string OriginalUtterance {get; set;}
+        public string FirstName { get; set; }
         
         [JsonProperty]
-        public string Command { get; set;}
-
+        public string LastName { get; set; }
+        
         [JsonProperty]
-        public Nlu Nlu { get; set; }
+        public string PatronymicName { get; set; }
     }
 }
