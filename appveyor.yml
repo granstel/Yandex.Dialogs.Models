@@ -1,0 +1,9 @@
+version: 1.0.2.{build}
+branches:
+  only:
+  - master
+image: Visual Studio 2017
+build_script:
+- cmd: dotnet build src\Yandex.Dialogs.Models.sln -c Release
+test_script:
+- cmd: dotnet test "src\Yandex.Dialogs.Models.sln" -c Release

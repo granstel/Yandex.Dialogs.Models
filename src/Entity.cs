@@ -14,6 +14,6 @@ namespace Yandex.Dialogs.Models
         public string Type { get; set; }
 
         [JsonProperty]
-        public EntityValue Value { get; set; }
+        public object Value { get; set; }
     }
 }

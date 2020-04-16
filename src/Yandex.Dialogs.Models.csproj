@@ -12,6 +12,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Fix Entity Value property, there was problew to deserialize it for YANDEX.DATETIME and YANDEX.NUMBER</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
