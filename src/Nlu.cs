@@ -4,10 +4,9 @@ using Newtonsoft.Json.Serialization;
 
 namespace Yandex.Dialogs.Models
 {
-    [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class Nlu
     {
-        [JsonProperty]
         public ICollection<Entity> Entities { get; set; }
     }
 }
