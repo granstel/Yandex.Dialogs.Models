@@ -4,18 +4,18 @@ using Newtonsoft.Json.Serialization;
 namespace Yandex.Dialogs.Models
 {
     [JsonObject(MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public class Button
+    public class CardItem
     {
+        [JsonProperty]
+        public string ImageId { get; set; }
+
         [JsonProperty]
         public string Title { get; set; }
 
         [JsonProperty]
-        public Payload Payload { get; set; }
+        public string Description { get; set; }
 
         [JsonProperty]
-        public string Url { get; set; }
-
-        [JsonProperty]
-        public bool Hide { get; set; }
+        public CardButton Button { get; set; }
     }
 }
