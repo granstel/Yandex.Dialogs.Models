@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Yandex.Dialogs.Models.Buttons;
+using Yandex.Dialogs.Models.Cards;
 
 namespace Yandex.Dialogs.Models
 {
@@ -14,5 +15,7 @@ namespace Yandex.Dialogs.Models
         public Button[] Buttons { get; set; }
 
         public bool EndSession { get; set; }
+        
+        public ICard Card { get; set; }
     }
 }

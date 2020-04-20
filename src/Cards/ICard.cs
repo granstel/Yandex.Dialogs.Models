@@ -4,7 +4,7 @@ using Newtonsoft.Json.Serialization;
 namespace Yandex.Dialogs.Models.Cards
 {
     [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    interface ICard
+    public interface ICard
     {
         CardType Type { get; }
     }
