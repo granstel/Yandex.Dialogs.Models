@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Yandex.Dialogs.Models
+namespace Yandex.Dialogs.Models.Input
 {
     [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class InputModel
@@ -11,6 +11,8 @@ namespace Yandex.Dialogs.Models
         public Request Request { get; set; }
 
         public InputSession Session { get; set; }
+
+        public InputState State { get; set; }
 
         public string Version { get; set; }
     }
