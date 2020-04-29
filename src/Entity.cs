@@ -10,6 +10,6 @@ namespace Yandex.Dialogs.Models
 
         public string Type { get; set; }
 
-        public object Value { get; set; }
+        public dynamic Value { get; set; }
     }
 }
