@@ -12,6 +12,8 @@ namespace Yandex.Dialogs.Models
 
         public Session Session { get; set; }
 
+        public SessionState SessionState { get; set; }
+
         public string Version { get; set; }
     }
 }
