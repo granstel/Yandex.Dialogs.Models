@@ -13,5 +13,7 @@ namespace Yandex.Dialogs.Models
         public string UserId { get; set; }
         
         public User User { get; set; }
+
+        public Application Application { get; set; }
     }
 }
