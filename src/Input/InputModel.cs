@@ -20,14 +20,14 @@ namespace Yandex.Dialogs.Models.Input
         {
             result = default;
 
-            return State?.User?.TryGetValue(key, out result) ?? false;
+            return State?.Session?.TryGetValue(key, out result) ?? false;
         }
 
         public bool TryGetFromUserState<T>(string key, out T result)
         {
             result = default;
 
-            return State?.Session?.TryGetValue(key, out result) ?? false;
+            return State?.User?.TryGetValue(key, out result) ?? false;
         }
     }
 }
