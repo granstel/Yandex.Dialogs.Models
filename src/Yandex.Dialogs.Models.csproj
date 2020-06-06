@@ -12,8 +12,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>Add session and user states according with new session storage (https://yandex.ru/dev/dialogs/alice/doc/session-persistence-docpage/)</PackageReleaseNotes>
+    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Methods to easy add and get data from user and session state</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
