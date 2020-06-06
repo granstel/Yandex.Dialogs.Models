@@ -15,5 +15,19 @@ namespace Yandex.Dialogs.Models.Input
         public InputState State { get; set; }
 
         public string Version { get; set; }
+
+        public bool TryGetFromSessionState<T>(string key, out T result)
+        {
+            result = default;
+
+            return State?.User?.TryGetValue(key, out result) ?? false;
+        }
+
+        public bool TryGetFromUserState<T>(string key, out T result)
+        {
+            result = default;
+
+            return State?.Session?.TryGetValue(key, out result) ?? false;
+        }
     }
 }

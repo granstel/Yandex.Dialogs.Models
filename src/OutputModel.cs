@@ -17,5 +17,25 @@ namespace Yandex.Dialogs.Models
         public State UserStateUpdate { get; set; }
 
         public string Version { get; set; }
+
+        public void AddToSessionState(string key, object value)
+        {
+            if (SessionState == null)
+            {
+                SessionState = new State();
+            }
+
+            SessionState.Add(key, value);
+        }
+
+        public void AddToUserState(string key, object value)
+        {
+            if (UserStateUpdate == null)
+            {
+                UserStateUpdate = new State();
+            }
+
+            UserStateUpdate.Add(key, value);
+        }
     }
 }
