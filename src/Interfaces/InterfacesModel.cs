@@ -11,5 +11,10 @@ namespace Yandex.Dialogs.Models.Interfaces
         public Screen Screen { get; set; }
 
         public Payments Payments { get; set; }
+
+        public bool HasScreen()
+        {
+            return Screen != null;
+        }
     }
 }
