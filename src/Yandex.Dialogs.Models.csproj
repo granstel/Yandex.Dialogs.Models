@@ -12,8 +12,11 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
-    <Version>1.0.5</Version>
-    <PackageReleaseNotes>Methods to easy add and get data from user and session state</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>adeee04 rename Interfaces type to InterfacesModel, add Payments and Screen
+e68d3d3 Method HasScreen at InterfacesModel
+
+</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
