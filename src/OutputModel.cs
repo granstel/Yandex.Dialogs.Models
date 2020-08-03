@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Yandex.Dialogs.Models.Interfaces;
 
 namespace Yandex.Dialogs.Models
 {

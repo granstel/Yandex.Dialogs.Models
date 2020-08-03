@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Yandex.Dialogs.Models.Interfaces;
 
 namespace Yandex.Dialogs.Models
 {
@@ -12,6 +13,6 @@ namespace Yandex.Dialogs.Models
 
         public string ClientId { get; set; }
 
-        public Interfaces Interfaces { get; set; }
+        public InterfacesModel Interfaces { get; set; }
     }
 }

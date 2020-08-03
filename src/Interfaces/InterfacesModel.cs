@@ -1,11 +1,15 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Yandex.Dialogs.Models
+namespace Yandex.Dialogs.Models.Interfaces
 {
     [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public class Interfaces
+    public class InterfacesModel
     {
         public AccountLinking AccountLinking { get; set; }
+
+        public Screen Screen { get; set; }
+
+        public Payments Payments { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Yandex.Dialogs.Models
+﻿namespace Yandex.Dialogs.Models.Interfaces
 {
     public class AccountLinking
     {
