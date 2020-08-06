@@ -12,7 +12,7 @@ namespace Yandex.Dialogs.Models
 
         public string Tts { get; set; }
 
-        public Button[] Buttons { get; set; }
+        public ResponseButton[] Buttons { get; set; }
 
         public bool EndSession { get; set; }
         
