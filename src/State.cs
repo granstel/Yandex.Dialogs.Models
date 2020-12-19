@@ -11,7 +11,9 @@ namespace Yandex.Dialogs.Models
             var success = base.TryGetValue(key, out object resultObject);
 
             if (!success)
+            {
                 return false;
+            }
 
             if (!(resultObject is T castedResult))
             {

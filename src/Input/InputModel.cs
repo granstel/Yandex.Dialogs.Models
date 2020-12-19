@@ -29,5 +29,12 @@ namespace Yandex.Dialogs.Models.Input
 
             return State?.User?.TryGetValue(key, out result) ?? false;
         }
+
+        public bool TryGetFromApplicationState<T>(string key, out T result)
+        {
+            result = default;
+
+            return State?.Applocation?.TryGetValue(key, out result) ?? false;
+        }
     }
 }
