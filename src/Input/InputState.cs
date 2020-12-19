@@ -9,5 +9,7 @@ namespace Yandex.Dialogs.Models.Input
         public State Session { get; set; }
 
         public State User { get; set; }
+        
+        public State Applocation { get; set; }
     }
 }
