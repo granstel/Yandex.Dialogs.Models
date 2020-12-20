@@ -40,5 +40,15 @@ namespace Yandex.Dialogs.Models
 
             UserStateUpdate.Add(key, value);
         }
+
+        public void AddToApplicationState(string key, object value)
+        {
+            if (ApplicationState == null)
+            {
+                ApplicationState = new State();
+            }
+
+            ApplicationState.Add(key, value);
+        }
     }
 }
