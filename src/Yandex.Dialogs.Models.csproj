@@ -12,8 +12,9 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>3482da4 Use concrete ResponseButton instead of abstract Button type at Reponse
+    <Version>1.2.0</Version>
+    <PackageReleaseNotes>add application state to input and output models, add TryGetFromApplicationState method to input model, add AddToApplicationState to output model
+
 </PackageReleaseNotes>
   </PropertyGroup>
 
