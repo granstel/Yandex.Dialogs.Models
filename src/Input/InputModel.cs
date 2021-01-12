@@ -34,7 +34,7 @@ namespace Yandex.Dialogs.Models.Input
         {
             result = default;
 
-            return State?.Applocation?.TryGetValue(key, out result) ?? false;
+            return State?.Application?.TryGetValue(key, out result) ?? false;
         }
     }
 }

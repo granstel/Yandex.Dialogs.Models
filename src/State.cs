@@ -22,7 +22,7 @@ namespace Yandex.Dialogs.Models
 
             result = castedResult;
 
-            return success;
+            return true;
         }
     }
 }

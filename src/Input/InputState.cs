@@ -10,6 +10,6 @@ namespace Yandex.Dialogs.Models.Input
 
         public State User { get; set; }
         
-        public State Applocation { get; set; }
+        public State Application { get; set; }
     }
 }
