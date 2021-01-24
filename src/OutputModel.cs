@@ -55,5 +55,10 @@ namespace Yandex.Dialogs.Models
         {
             StartAccountLinking = new AccountLinking();
         }
+
+        public void InitRequestGeolocation()
+        {
+            Response?.InitRequestGeolocation();
+        }
     }
 }
