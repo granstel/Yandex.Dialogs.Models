@@ -12,8 +12,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
-    <Version>1.2.0</Version>
-    <PackageReleaseNotes>Add application state to input and output models</PackageReleaseNotes>
+    <Version>1.3.0</Version>
+    <PackageReleaseNotes>Add Directives.RequestGeolocation to Response and Location to InputSession. OutputModel has method InitRequestGeolocation for fast initialization of Directives.RequestGeolocation</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
