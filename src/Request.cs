@@ -11,5 +11,7 @@ namespace Yandex.Dialogs.Models
         public string Command { get; set;}
 
         public Nlu Nlu { get; set; }
+
+        public string Type { get; set; }
     }
 }
