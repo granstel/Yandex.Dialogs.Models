@@ -4,12 +4,12 @@ using Newtonsoft.Json.Serialization;
 namespace Yandex.Dialogs.Models.Input
 {
     [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public class InputSession : Session
+    public class Location
     {
-        public bool New { get; set; }
+        public float Lat { get; set; }
 
-        public string SkillId { get; set; }
+        public float Lon { get; set; }
 
-        public Location Location { get; set; }
+        public float Accuracy { get; set; }
     }
 }
