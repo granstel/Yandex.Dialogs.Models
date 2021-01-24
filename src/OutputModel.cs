@@ -50,5 +50,10 @@ namespace Yandex.Dialogs.Models
 
             ApplicationState.Add(key, value);
         }
+
+        public void RequestAccountLinking()
+        {
+            StartAccountLinking = new AccountLinking();
+        }
     }
 }
