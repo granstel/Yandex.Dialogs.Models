@@ -12,9 +12,16 @@ namespace Yandex.Dialogs.Models.Interfaces
 
         public Payments Payments { get; set; }
 
+        public GeolocationSharing GeolocationSharing { get; set; }
+
         public bool HasScreen()
         {
             return Screen != null;
+        }
+
+        public bool HasGeolocationSharing()
+        {
+            return GeolocationSharing != null;
         }
     }
 }
