@@ -12,8 +12,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
-    <Version>1.3.1</Version>
-    <PackageReleaseNotes>Add meta.interfaces.geolocation_sharing</PackageReleaseNotes>
+    <Version>1.4.0</Version>
+    <PackageReleaseNotes>Add analytics (https://yandex.ru/dev/dialogs/alice/doc/appmetrica.html)</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Yandex.Dialogs.Models.Interfaces;
 
@@ -8,6 +9,8 @@ namespace Yandex.Dialogs.Models
     public class OutputModel
     {
         public Response Response { get; set; }
+
+        public Analytics.Analytics Analytics { get; set; }
 
         public AccountLinking StartAccountLinking { get; set; }
 
@@ -59,6 +62,16 @@ namespace Yandex.Dialogs.Models
         public void InitRequestGeolocation()
         {
             Response?.InitRequestGeolocation();
+        }
+
+        public void AddAnalyticsEvent(string name, IDictionary<string, object> value)
+        {
+            if (Analytics == null)
+            {
+                Analytics = new Analytics.Analytics();
+            }
+
+            Analytics.AddEvent(name, value);
         }
     }
 }
