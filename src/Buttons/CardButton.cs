@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Yandex.Dialogs.Models.Buttons
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class CardButton : Button
     {
+        [JsonPropertyName("text")]
         public string Text { get; set; }
     }
 }

@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet test src/Yandex.Dialogs.Models.sln -c Release
+      - run: dotnet pack src/Yandex.Dialogs.Models.csproj -c Release --no-build

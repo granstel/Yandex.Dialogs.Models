@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Yandex.Dialogs.Models.Serialization;
 
 namespace Yandex.Dialogs.Models.Analytics
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class Event
     {
         public Event(string name, IDictionary<string, object> value)
@@ -13,8 +12,11 @@ namespace Yandex.Dialogs.Models.Analytics
             Value = value;
         }
 
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        [JsonPropertyName("value")]
+        [JsonConverter(typeof(AnalyticsValueConverter))]
         public IDictionary<string, object> Value { get; set; }
     }
 }

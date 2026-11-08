@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Yandex.Dialogs.Models.Cards
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+    [JsonConverter(typeof(CardJsonConverter))]
     public interface ICard
     {
+        [JsonPropertyName("type")]
         CardType Type { get; }
     }
 }

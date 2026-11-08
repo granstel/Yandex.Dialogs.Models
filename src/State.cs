@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Yandex.Dialogs.Models.Serialization;
 
 namespace Yandex.Dialogs.Models
 {
+    [JsonConverter(typeof(StateJsonConverter))]
     public class State : Dictionary<string, object>
     {
         public bool TryGetValue<T>(string key, out T result)

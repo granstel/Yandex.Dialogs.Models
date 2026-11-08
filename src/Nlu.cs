@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Yandex.Dialogs.Models
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class Nlu
     {
+        [JsonPropertyName("entities")]
         public ICollection<Entity> Entities { get; set; }
     }
 }
