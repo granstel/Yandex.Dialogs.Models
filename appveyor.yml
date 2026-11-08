@@ -1,7 +1,5 @@
 version: 1.0.2.{build}
-branches:
-  only:
-  - master
+skip_tags: true
 image: Visual Studio 2026
 build_script:
 - cmd: dotnet build src\Yandex.Dialogs.Models.sln -c Release
