@@ -4,6 +4,6 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="../tests/Yandex.Dialogs.Models.Tests.csproj" />
-  <Project Path="Yandex.Dialogs.Models.csproj" />
+  <Project Path="tests/Yandex.Dialogs.Models.Tests.csproj" />
+  <Project Path="src/Yandex.Dialogs.Models.csproj" />
 </Solution>

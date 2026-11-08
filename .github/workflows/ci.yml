@@ -37,9 +37,9 @@ jobs:
           }
           "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
       - run: dotnet --info
-      - run: dotnet restore src/Yandex.Dialogs.Models.slnx -p:NuGetAudit=true -p:NuGetAuditMode=all "-warnaserror:NU1900,NU1901,NU1902,NU1903,NU1904,NU1905"
-      - run: dotnet build src/Yandex.Dialogs.Models.slnx -c Release --no-restore "-p:Version=$env:PACKAGE_VERSION"
-      - run: dotnet test --solution src/Yandex.Dialogs.Models.slnx -c Release --no-build
+      - run: dotnet restore -p:NuGetAudit=true -p:NuGetAuditMode=all "-warnaserror:NU1900,NU1901,NU1902,NU1903,NU1904,NU1905"
+      - run: dotnet build -c Release --no-restore "-p:Version=$env:PACKAGE_VERSION"
+      - run: dotnet test -c Release --no-build
       - name: Pack library
         run: dotnet pack src/Yandex.Dialogs.Models.csproj -c Release --no-build -o artifacts "-p:Version=$env:PACKAGE_VERSION"
       - uses: actions/upload-artifact@v7.0.2

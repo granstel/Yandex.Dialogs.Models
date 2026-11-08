@@ -46,7 +46,7 @@ Build and release
 Use the SDK pinned in `global.json`.
 
 ```sh
-dotnet test --solution src/Yandex.Dialogs.Models.slnx -c Release
+dotnet test -c Release
 dotnet pack src/Yandex.Dialogs.Models.csproj -c Release
 ```
 
