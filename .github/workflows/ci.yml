@@ -47,8 +47,7 @@ jobs:
           RELEASE_TAG: ${{ inputs.release-tag }}
         run: |
           version="${RELEASE_TAG:-0.0.0-ci}"
-          dotnet restore -p:NuGetAudit=true -p:NuGetAuditMode=all \
-            -warnaserror:NU1900,NU1901,NU1902,NU1903,NU1904,NU1905
+          dotnet restore -p:NuGetAudit=true -p:NuGetAuditMode=all
           dotnet build -c Release --no-restore -p:Version="$version" -p:ContinuousIntegrationBuild=true
           dotnet test -c Release --no-build
           dotnet pack src/Yandex.Dialogs.Models.csproj -c Release --no-build -o package \
