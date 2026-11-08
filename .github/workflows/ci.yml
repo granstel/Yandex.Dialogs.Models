@@ -30,7 +30,10 @@ jobs:
           RELEASE_TAG: ${{ inputs.release-tag }}
         run: |
           if ($env:RELEASE_TAG) {
-            $version = ./.github/scripts/Get-ReleaseVersion.ps1 -Tag $env:RELEASE_TAG
+            if ($env:RELEASE_TAG -cnotmatch '\A(0|[1-9][0-9]*)[.](0|[1-9][0-9]*)[.](0|[1-9][0-9]*)\z') {
+              throw 'Release tag must be MAJOR.MINOR.PATCH (for example, 2.1.0).'
+            }
+            $version = $env:RELEASE_TAG
           } else {
             $version = dotnet msbuild src/Yandex.Dialogs.Models.csproj -getProperty:Version
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
