@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="../tests/Yandex.Dialogs.Models.Tests.csproj" />
+  <Project Path="Yandex.Dialogs.Models.csproj" />
+</Solution>

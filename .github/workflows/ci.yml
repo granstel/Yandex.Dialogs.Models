@@ -5,6 +5,11 @@ on:
     branches: [master]
   push:
     branches: [master]
+  workflow_call:
+    inputs:
+      release-tag:
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -13,9 +18,33 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-dotnet@v6
+      - uses: actions/checkout@v7.0.1
         with:
-          dotnet-version: 10.0.x
-      - run: dotnet test src/Yandex.Dialogs.Models.sln -c Release
-      - run: dotnet pack src/Yandex.Dialogs.Models.csproj -c Release --no-build
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v6.1.0
+        with:
+          global-json-file: global.json
+      - name: Resolve package version
+        env:
+          RELEASE_TAG: ${{ inputs.release-tag }}
+        run: |
+          if ($env:RELEASE_TAG) {
+            $version = ./.github/scripts/Get-ReleaseVersion.ps1 -Tag $env:RELEASE_TAG
+          } else {
+            $version = dotnet msbuild src/Yandex.Dialogs.Models.csproj -getProperty:Version
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
+      - run: dotnet --info
+      - run: dotnet restore src/Yandex.Dialogs.Models.slnx -p:NuGetAudit=true -p:NuGetAuditMode=all "-warnaserror:NU1900,NU1901,NU1902,NU1903,NU1904,NU1905"
+      - run: dotnet build src/Yandex.Dialogs.Models.slnx -c Release --no-restore "-p:Version=$env:PACKAGE_VERSION"
+      - run: dotnet test --solution src/Yandex.Dialogs.Models.slnx -c Release --no-build
+      - name: Pack library
+        run: dotnet pack src/Yandex.Dialogs.Models.csproj -c Release --no-build -o artifacts "-p:Version=$env:PACKAGE_VERSION"
+      - uses: actions/upload-artifact@v7.0.2
+        if: inputs.release-tag != ''
+        with:
+          name: nuget-package
+          path: artifacts/*.nupkg
+          if-no-files-found: error
