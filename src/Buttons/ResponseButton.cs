@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Yandex.Dialogs.Models.Buttons
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class ResponseButton : Button
     {
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
+        [JsonPropertyName("hide")]
         public bool Hide { get; set; }
     }
 }

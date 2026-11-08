@@ -1,15 +1,18 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
+using Yandex.Dialogs.Models.Serialization;
 
 namespace Yandex.Dialogs.Models
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class Entity
     {
+        [JsonPropertyName("tokens")]
         public Token Tokens { get; set; }
 
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
+        [JsonPropertyName("value")]
+        [JsonConverter(typeof(DynamicValueConverter))]
         public object Value { get; set; }
     }
 }

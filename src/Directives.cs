@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Yandex.Dialogs.Models
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class Directives
     {
+        [JsonPropertyName("request_geolocation")]
         public RequestGeolocation RequestGeolocation { get; set; }
 
         public void InitRequestGeolocation()

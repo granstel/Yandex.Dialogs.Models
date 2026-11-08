@@ -1,15 +1,16 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Yandex.Dialogs.Models.Input
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class InputSession : Session
     {
+        [JsonPropertyName("new")]
         public bool New { get; set; }
 
+        [JsonPropertyName("skill_id")]
         public string SkillId { get; set; }
 
+        [JsonPropertyName("location")]
         public Location Location { get; set; }
     }
 }

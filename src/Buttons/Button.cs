@@ -1,13 +1,17 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
+using Yandex.Dialogs.Models.Serialization;
 
 namespace Yandex.Dialogs.Models.Buttons
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+    [JsonDerivedType(typeof(CardButton))]
+    [JsonDerivedType(typeof(ResponseButton))]
     public abstract class Button
     {
+        [JsonPropertyName("payload")]
+        [JsonConverter(typeof(DynamicValueConverter))]
         public object Payload { get; set; }
 
+        [JsonPropertyName("url")]
         public string Url { get; set; }
     }
 }

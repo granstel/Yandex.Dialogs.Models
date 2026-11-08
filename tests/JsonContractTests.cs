@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
+using System.Text.Json;
 using System.Text.Json.Nodes;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using Xunit;
 using Yandex.Dialogs.Models.Buttons;
 using Yandex.Dialogs.Models.Cards;
@@ -66,7 +68,7 @@ public class JsonContractTests
               "{{user}}":{"DisplayMode":"compact"},
               "{{application}}":{"Count":2147483648,"Fraction":2.5,"Exponent":1e2,"WholeDouble":2.0,"Off":false}
             } }
-            """);
+            """, ignoreCase: session == "Session");
 
         Assert.True(input.TryGetFromSessionState<bool>("IsReady", out var ready));
         Assert.True(ready);
@@ -193,10 +195,47 @@ public class JsonContractTests
             """, Write(output, omitNulls: true));
     }
 
-    private static T Read<T>(string json) => JsonConvert.DeserializeObject<T>(json);
+    [Fact]
+    public void OutputReadsCardsUsingTheWireDiscriminator()
+    {
+        var bigImage = Read<OutputModel>("""
+            {"response":{"card":{"image_id":"image","type":"BigImage","button":{"payload":true}}}}
+            """);
+        var image = Assert.IsType<BigImageCard>(bigImage.Response.Card);
+        Assert.Equal("image", image.ImageId);
+        Assert.True(Assert.IsType<bool>(image.Button.Payload));
 
-    private static string Write<T>(T value, bool omitNulls = false) => JsonConvert.SerializeObject(value,
-        new JsonSerializerSettings { NullValueHandling = omitNulls ? NullValueHandling.Ignore : NullValueHandling.Include });
+        var itemsList = Read<OutputModel>("""
+            {"response":{"card":{"items":[{"image_id":"item"}],"type":"ItemsList","header":{"text":"List"}}}}
+            """);
+        var items = Assert.IsType<ItemsListCard>(itemsList.Response.Card);
+        Assert.Equal("item", Assert.Single(items.Items).ImageId);
+        Assert.Equal("List", items.Header.Text);
+        Assert.Throws<JsonException>(() => Read<ICard>("""{"type":"Unsupported"}"""));
+    }
+
+    [Fact]
+    public void StatePreservesLargeIntegersAndExactNamesUnderNamingPolicies()
+    {
+        const string json = """
+            {"session":{"LargeNumber":9223372036854775808,"IsReady":true},"user":null,"application":null}
+            """;
+        var state = Read<InputState>(json);
+        Assert.True(state.Session.TryGetValue<BigInteger>("LargeNumber", out var number));
+        Assert.Equal(new BigInteger(long.MaxValue) + 1, number);
+        AssertJson(json, JsonSerializer.Serialize(state, new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseUpper,
+            DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseUpper
+        }));
+    }
+
+    private static T Read<T>(string json, bool ignoreCase = false) => ignoreCase
+        ? JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+        : JsonSerializer.Deserialize<T>(json);
+
+    private static string Write<T>(T value, bool omitNulls = false) => JsonSerializer.Serialize(value,
+        new JsonSerializerOptions { DefaultIgnoreCondition = omitNulls ? JsonIgnoreCondition.WhenWritingNull : JsonIgnoreCondition.Never });
 
     private static void AssertJson(string expected, string actual) =>
         Assert.True(JsonNode.DeepEquals(JsonNode.Parse(expected), JsonNode.Parse(actual)), actual);
