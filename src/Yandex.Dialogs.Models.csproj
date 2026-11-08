@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>GranSteL</Authors>
     <Description>Models for Yandex dialogs</Description>
     <PackageProjectUrl>https://github.com/granstel/Yandex.Dialogs.Models</PackageProjectUrl>
@@ -10,10 +9,11 @@
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Yandex, Dialogs, Models</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Language>C#</Language>
     <Title>Yandex.Dialogs.Models</Title>
-    <Version>1.4.0</Version>
-    <PackageReleaseNotes>Add analytics (https://yandex.ru/dev/dialogs/alice/doc/appmetrica.html)</PackageReleaseNotes>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes>Use System.Text.Json for dialog models and preserve CLR scalar values in state.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +25,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
