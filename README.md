@@ -1,6 +1,5 @@
 # Yandex.Dialogs.Models
 [![CI](https://github.com/granstel/Yandex.Dialogs.Models/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/granstel/Yandex.Dialogs.Models/actions/workflows/ci.yml)
-[![NuGet](https://buildstats.info/nuget/Yandex.Dialogs.Models)](https://www.nuget.org/packages/Yandex.Dialogs.Models)
 
 Models for Yandex dialogs. Supports geolocation
 
