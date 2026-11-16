@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <ContinuousIntegrationBuild Condition="'$(Configuration)' == 'Release'">true</ContinuousIntegrationBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Authors>GranSteL</Authors>
     <Description>Models for Yandex dialogs</Description>
     <PackageProjectUrl>https://github.com/granstel/Yandex.Dialogs.Models</PackageProjectUrl>

@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: nuget
+    directories:
+      - /src
+      - /tests
+    schedule:
+      interval: weekly
+      day: friday
+      time: "09:00"
+      timezone: Europe/Moscow
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+      time: "09:00"
+      timezone: Europe/Moscow
+  - package-ecosystem: dotnet-sdk
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+      time: "09:00"
+      timezone: Europe/Moscow
