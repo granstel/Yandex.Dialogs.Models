@@ -41,7 +41,6 @@ jobs:
         if: steps.reuse-package.outcome != 'success'
         with:
           global-json-file: global.json
-          dotnet-version: '10.0.x'
       - name: Restore, build, test and pack
         if: steps.reuse-package.outcome != 'success'
         env:
