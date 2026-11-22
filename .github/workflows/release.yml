@@ -25,7 +25,7 @@ jobs:
 
   attach-package:
     needs: build
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       actions: read
       contents: write
@@ -68,7 +68,7 @@ jobs:
 
   publish-nuget:
     needs: attach-package
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     environment: nuget
     permissions:
       actions: read
@@ -99,7 +99,7 @@ jobs:
 
   publish-github-packages:
     needs: attach-package
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       actions: read
       contents: read

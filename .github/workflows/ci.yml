@@ -20,7 +20,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Reuse the package on a release retry
         if: inputs.release-tag != '' && github.run_attempt != '1'
