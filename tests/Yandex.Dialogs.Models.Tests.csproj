@@ -6,7 +6,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="xunit.v3.mtp-v2" Version="4.0.2" />
+    <PackageReference Include="xunit.v3.mtp-v2" Version="4.0.3" />
     <ProjectReference Include="../src/Yandex.Dialogs.Models.csproj" />
   </ItemGroup>
 </Project>
